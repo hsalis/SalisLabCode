@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 LABEL Description="This Docker image is used to run software developed by the Salis Lab" Version="1.0"
 ENV DEBIAN_FRONTEND noninteractive
 
