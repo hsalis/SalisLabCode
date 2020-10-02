@@ -1,0 +1,22 @@
+SUBGROUP
+Pearson R-squared
+Pearson p
+Spearman R-squared
+Spearman p
+RMSE
+N-outliers
+Count.Nan
+slope
+intercept
+2-fold Error
+5-fold Error
+10-fold Error
+Normalized KL-divergence
+KL-divergence
+Max KL-divergence
+Sequence entropy
+N-states
+CV
+RIG
+MC
+AUROC
