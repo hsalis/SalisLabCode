@@ -1,6 +1,8 @@
 # NRP_Calculator
 Python modules for designing large toolboxes of highly non-repetitive genetic parts for engineering stable genetic systems
 
+Updated Source Code: <https://github.com/ayaanhossain/nrpcalc>
+
 Relevant publication:
 
 Automated design of thousands of non-repetitive parts for stable genetic systems
