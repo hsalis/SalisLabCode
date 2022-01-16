@@ -1,12 +1,8 @@
 # Synthesis_Success_Calculator
 Python modules for predicting the synthesis success rate (1st pass) for DNA fragments. Additional python modules for training Random Forest classifiers.
 
-Relevant publication:
-
-The Synthesis Success Calculator: Predicting the Rapid Synthesis of DNA Fragments with Machine Learning
-
-Sean M. Halper, Ayaan Hossain, and Howard M. Salis
-
+When using this code, remember to cite its publication: Halper, Sean M., Ayaan Hossain, and Howard M. Salis. "Synthesis success calculator: predicting the rapid synthesis of DNA fragments with machine learning." ACS Synthetic Biology 9, no. 7 (2020): 1563-1571.
+https://pubs.acs.org/doi/abs/10.1021/acssynbio.9b00460
 Correspondence should be addressed to H.M.S. (salis@psu.edu)
 
 Abstract:

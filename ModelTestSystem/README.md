@@ -1,5 +1,11 @@
 # SynBioMTS
 An automated model test system for synthetic biology models of gene expression and regulation.
+When using this code, remember to cite its publication: Reis, Alexander C., and Howard M. Salis. "An automated model test system for systematic development and improvement of gene expression models." ACS Synthetic Biology 9, no. 11 (2020): 3145-3156.
+https://pubs.acs.org/doi/abs/10.1021/acssynbio.0c00394
+Correspondence should be addressed to H.M.S. (salis@psu.edu)
+
+Abstract:
+Gene expression models greatly accelerate the engineering of synthetic metabolic pathways and genetic circuits by predicting sequence-function relationships and reducing trial-and-error experimentation. However, developing models with more accurate predictions remains a significant challenge. Here we present a model test system that combines advanced statistics, machine learning, and a database of 9862 characterized genetic systems to automatically quantify model accuracies, accept or reject mechanistic hypotheses, and identify areas for model improvement. We also introduce model capacity, a new information theoretic metric for correct cross-data-set comparisons. We demonstrate the model test system by comparing six models of translation initiation rate, evaluating 100 mechanistic hypotheses, and uncovering new sequence determinants that control protein expression levels. We then applied these results to develop a biophysical model of translation initiation rate with significant improvements in accuracy. Automated model test systems will dramatically accelerate the development of gene expression models, and thereby transition synthetic biology into a mature engineering discipline.
 
 `synbiomts` uses a database of over 16000 unique characterized genetic systems to run Python-wrapped sequence-function models, quantify model accuracy, accept or reject proposed mechanistic hypotheses, and identify sources of model error. This package is easily modifiable to expand the genetic system database, calculate additional statistical test metrics, and test new and improved gene expression models implemented in nearly any programming language.
 
@@ -8,7 +14,7 @@ An automated model test system for synthetic biology models of gene expression a
 ### Dependencies
 Python packages used are listed below. You can install the first three packages together as part of the [SciPy Stack](https://www.scipy.org/install.html).
 * pandas - Database management
-* scipy - Statistics calculations 
+* scipy - Statistics calculations
 * numpy - General purpose numerical computing
 * [scikit-learn](http://scikit-learn.org/stable/install.html) - Machine learning
 
@@ -55,7 +61,7 @@ def RBSCalcv2(sequence,temperature):
     model.temp = temperature
     model.run()
     RBS = model.output() # simplified for the example
-    
+
     # Results should be returned as a dictionary
     # The keys will become labels in the resulting pandas dataframe
     results = {
@@ -67,23 +73,23 @@ def RBSCalcv2(sequence,temperature):
     return results
 
 if __name__ == "__main__":
-    
+
     # create models Container object
     models = synbiomts.interface.Container()
-    
+
     # add the model(s)
     models.add(RBSCalcv2)
-    
+
     # specify the form of each model
     # RBS_Calculator is a thermodynamic model where: Protein ~ K*exp(-0.45*dG_total)
     models.setform(['RBSCalcv2'],x='dG_total',y='PROT.MEAN',yScale='ln',a1=-0.45)
 
     # create test system object
     testsystem = synbiomts.analyze.ModelTest(models,'geneticsystems.db',add_data=True,verbose=True)
-    
-    # run model predictions and statistics calculations 
+
+    # run model predictions and statistics calculations
     testsystem.run()
-    
+
     # if you want to shelve the model calculations
     # testsystem.run(calcsFilename='savedcalcs.db')
 ```
@@ -147,7 +153,7 @@ with open("labels/labels1.txt","r") as f:
 with open("labels/labels_stats.txt","r") as f:
     statsLabels = [x.strip('\n') for x in f.readlines()]
 
-test.to_excel('filename',predictLabels,statsLabels) 
+test.to_excel('filename',predictLabels,statsLabels)
 ```
 
 ## Acknowledgements

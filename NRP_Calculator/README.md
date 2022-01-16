@@ -3,12 +3,8 @@ Python modules for designing large toolboxes of highly non-repetitive genetic pa
 
 Updated Source Code: <https://github.com/ayaanhossain/nrpcalc>
 
-Relevant publication:
-
-Automated design of thousands of non-repetitive parts for stable genetic systems
-
-Ayaan Hossain, Eriberto Lopez, Sean M. Halper, Daniel P. Cetnar, Alexander C. Reis, Devin Strickland, Eric Klavins, and Howard M. Salis
-
+When using this code, remember to cite its publication: Hossain, Ayaan, Eriberto Lopez, Sean M. Halper, Daniel P. Cetnar, Alexander C. Reis, Devin Strickland, Eric Klavins, and Howard M. Salis. "Automated design of thousands of nonrepetitive parts for engineering stable genetic systems." Nature biotechnology 38, no. 12 (2020): 1466-1475.
+https://www.nature.com/articles/s41587-020-0584-2
 Correspondence should be addressed to H.M.S. (salis@psu.edu)
 
 Abstract:
