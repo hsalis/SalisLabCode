@@ -1,7 +1,10 @@
 # SynBioMTS
 An automated model test system for synthetic biology models of gene expression and regulation.
+
 When using this code, remember to cite its publication: Reis, Alexander C., and Howard M. Salis. "An automated model test system for systematic development and improvement of gene expression models." ACS Synthetic Biology 9, no. 11 (2020): 3145-3156.
+
 https://pubs.acs.org/doi/abs/10.1021/acssynbio.0c00394
+
 Correspondence should be addressed to H.M.S. (salis@psu.edu)
 
 Abstract:
