@@ -10,10 +10,12 @@ RUN apt-get update && apt-get install -y python-pip python-dev build-essential z
                                          libcr-dev mpich mpich-doc \
                                          && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --upgrade pip
-RUN pip install --upgrade virtualenv
-RUN pip install biopython boto certifi configparser cycler python-dateutil numpy openpyxl pandas pexpect pickleshare prompt-toolkit==1.0.15 ptyprocess pyExcelerator deap decorator entrypoints enum34 functools32 ipykernel ipython pathos pygments pypandoc pyparsing pyquery pysvg python_dateutil pytz pyzmq jinja jsonschema scipy matplotlib mpi4py sympy slacker mpmath nbconvert nose xlrd xlwt terminado tornado wcwidth nbformat mistune gprof2dot pybloom_live psutil sortedcontainers sqlitedict bayesian-optimization networkx edlib npm requests boto3 python-memcached dnaplotlib Pillow faulthandler
-RUN pip install --upgrade biopython networkx hyperloglog pybloom_live sqlitedict scipy numpy 
+RUN pip2 install --upgrade pip
+RUN pip2 install --upgrade virtualenv
+RUN pip2 install mpmath==1.1.0
+RUN pip2 install biopython==1.76 boto certifi configparser cycler python-dateutil numpy openpyxl pandas pexpect pickleshare prompt-toolkit==1.0.15 ptyprocess pyExcelerator deap decorator entrypoints enum34 functools32 ipykernel ipython pathos pygments pypandoc pyparsing pyquery pysvg python_dateutil pytz pyzmq jinja jsonschema scipy matplotlib mpi4py sympy slacker
+RUN pip2 install nbconvert nose xlrd xlwt terminado tornado wcwidth nbformat mistune gprof2dot pybloom_live psutil sortedcontainers sqlitedict bayesian-optimization networkx edlib npm requests boto3 python-memcached dnaplotlib Pillow faulthandler treeinterpreter
+RUN pip2 install --upgrade hyperloglog scipy numpy
 
 RUN wget https://www.tbi.univie.ac.at/RNA/download/sourcecode/2_4_x/ViennaRNA-2.4.11.tar.gz && \
     tar xvfz ViennaRNA-2.4.11.tar.gz && \

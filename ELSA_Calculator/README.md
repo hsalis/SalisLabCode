@@ -1,13 +1,9 @@
-# ELSA_Calculator
+# ELSA Calculator
 Python modules for designing highly non-repetitive Extra Long sgRNA Arrays (ELSAs) for multiplexed CRISPR applications.
 
-Relevant publication:
+Relevant publication: Reis, Alexander C.*, Sean M. Halper*, Grace E. Vezeau, Daniel P. Cetnar, Ayaan Hossain, Phillip R. Clauer, and Howard M. Salis. "Simultaneous repression of multiple bacterial genes using nonrepetitive extra-long sgRNA arrays." Nature biotechnology 37, no. 11 (2019): 1294-1301.
 
-Simultaneous regulation of many genes using highly non-repetitive extra-long sgRNA arrays
-
-Alexander C. Reis*, Sean M. Halper*, Grace E. Vezeau, Daniel P. Cetnar, Ayaan Hossain, Phillip R. Clauer and Howard M. Salis
 *These authors contributed equally to this work.
-
 Correspondence should be addressed to H.M.S. (salis@psu.edu).
 
 Abstract:
