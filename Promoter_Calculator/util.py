@@ -55,23 +55,23 @@ persistence   = {'AA' : 50.4, 'TT' : 50.4, #revcomp
                  'GC':  44.6,
                  'TA':  44.7,
                 }
-RNA_DNA_hybrids = { 'TT' :  -1.0, 'AA' : -1.0,  #revcomp
-                    'TG':   -2.1, 'CA' : -2.1,  #revcomp
-                    'TC':   -1.8, 'GA' : -1.8,  #revcomp
-                    'TA':   -0.9,
-                    'GT':   -0.9, 'AC' : -0.9,  #revcomp
-                    'GG':   -2.1, 'CC' : -2.1,  #revcomp
-                    'GC':   -1.7,
-                    'GA':   -0.9, 'TC' : -0.9,  #revcomp
-                    'CT':   -1.3, 'AG' : -1.3,  #revcomp
-                    'CG':   -2.7,
-                    'CC':   -2.9, 'GG' : -2.9,  #revcomp
-                    'CA':   -1.1, 'TG' : -1.1,  #revcomp
-                    'AT':   -0.6,
-                    'AG':   -1.5, 'CT' : -1.5,  #revcomp
-                    'AC':   -1.6, 'GT' : -1.6,  #revcomp
-                    'AA':   -0.2, 'TT' : -0.2   #revcomp
-                  }
+RNA_DNA_hybrids = {'TT': -1.0,
+                   'TG': -2.1,
+                   'TC': -1.8,
+                   'TA': -0.9,
+                   'GT': -0.9,
+                   'GG': -2.1,
+                   'GC': -1.7,
+                   'GA': -0.9,
+                   'CT': -1.3,
+                   'CG': -2.7,
+                   'CC': -2.9,
+                   'CA': -1.1,
+                   'AT': -0.6,
+                   'AG': -1.5,
+                   'AC': -1.6,
+                   'AA': -0.2
+                   }
 
 DNA_DNA_hybrids = { 'AA':   -1.00, 'TT' : -1.00, #revcomp
                     'AT':   -0.88,
