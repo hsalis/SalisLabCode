@@ -297,7 +297,7 @@ For each of the following types, included in the ‘type’ key of each element 
 	      Sequences to be excluded from element design. 
 
 ### ‘variant’
-	‘sequences’: list
+	'sequences': list
         A list of all variants to be designed on your oligopool. The length of this list should inherently be equal to the pool_size parameter in desgingparser()
 
 ### ‘barcode’
