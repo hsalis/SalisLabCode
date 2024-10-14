@@ -91,40 +91,49 @@ A basic oligopool design pipeline will take place in the designparser.designpars
 def designparser.designparser(pool_size, element_names, elements_spec, background_spec, padding_spec, split_spec=None)
 
 Parameters
-pool_size : int
+`pool_size : int`
 The integer should be equal to the number of unique variants in your oligopool. If your variant sequences are stored in a list, you can simply use len(‘your_list’) to retrieve the pool size.
 
-element_names : list
+`element_names : list`
 A list of strings for the elements in your oligo sequences, in the order you wish them to be arranged in each oligo sequence. The following example will name each element in your oligo sequence and specify their order, starting with ‘Primer1’ as the first element, and ending with ‘Padding’. 
 
 Example: 
+```python
 element_names = [‘Primer1’, ‘Cutsite2’, ‘Variant_Sequence’, ‘Cutsite2’,  ‘Barcode’, ‘Primer2’, ’Cutsite3’,  ‘Padding’]
+```
 
-elements_spec : dict
+`elements_spec : dict`
 A nested dictionary of dictionaries. The keys of the element_spec dictionary should be the names in element_names. Each key in element_spec is also a nested dictionary, where each element’s type and specifications (which are unique to their type) are defined by the user. For a list of element types and specifications, see Appendix B.
 
 Example:
-elements_spec = {‘Primer1’: {‘type’: ‘Primer’, ‘oligolimit’: 150, …}, … ‘Padding’: {‘type’: ‘spacer’, … }}
+```python
+elements_spec = {‘Primer1’: {‘type’: ‘Primer’, ‘oligolimit’: int }, ‘Padding’: {‘type’: ‘spacer’} }
+background_spec = {‘indata’ : indata, ‘maxreplen’ : int }
+```
 
-background_spec : dict = {‘indata’ : list, ‘maxreplen’ : int }  / None
-A dictionary containing the background sequences of your genetic system outside of your oligopool design. This ensures optimal oligopool design by preventing undesired sequences being introduced, for example, repetitive sequences. Including your sequence variants will ensure additional copies are not introduced in your designed sequences (for example, in padding sequence designs). ‘indata’ is a list of the background sequences. ‘maxreplen’ is the maximum repetitive sequence length allowed in the design. 
+A dictionary containing the background sequences of your genetic system outside of your oligopool design. This ensures optimal oligopool design by preventing undesired sequences being introduced, for example, repetitive sequences. Including your sequence variants will ensure additional copies are not introduced in your designed sequences (for example, in padding sequence designs). `indata` is a list of the background sequences. ‘maxreplen’ is the maximum repetitive sequence length allowed in the design. 
 
-padding_spec : dict = {‘typeIIS’ : str / None, ‘oligolimit’ : int, ‘mintmelt’: int, ‘maxtmelt’: int, ‘maxreplen’: int}
+```python
+padding_spec = {‘typeIIS’ : str , ‘oligolimit’ : int, ‘mintmelt’: int, ‘maxtmelt’: int, ‘maxreplen’: int}
+```
+
 A dictionary containing parameters for designing padding/filler sequences in your oligos with a specified TypeIIS recognition site, so the designed sequences are equal to the ‘oligolimit’. 'mintmelt’, ‘maxtmelt’ define the minimum and maximum melting temperatures of the design. ‘maxreplen’ defines the maximum repetitive sequence length allowed. 
 
-split_spec : dict = {‘splitlimit’ “: int / None, ‘mintmelt’ : int, ‘minhdist’:  int,  ‘minoverlap’: int , ‘maxoverlap’: int } / None
-split_spec defines parameters for splitting based on typeIIS recognition site given in padding_spec. ‘splitlimit’ defines maximum allowed oligolimit after splitting. ‘mintmelt’ defines the minimum melting temperature of the split regions. ‘minhdist’ defines the pairwise hamming distance between split regions at a given distance. ‘minoverlap’ and ‘maxoverlap’ define the minimum and maximum overlap allowed by the split. 
+```python
+split_spec = {‘splitlimit’ : int , ‘mintmelt’ : int, ‘minhdist’:  int,  ‘minoverlap’: int , ‘maxoverlap’: int }
+```
 
-Output : dict = {‘output’: dict, ‘step’, ‘step_name’, ‘stats_dict’ }
+`split_spec` defines parameters for splitting based on typeIIS recognition site given in padding_spec. ‘splitlimit’ defines maximum allowed oligolimit after splitting. `mintmelt` defines the minimum melting temperature of the split regions. `minhdist` defines the pairwise hamming distance between split regions at a given distance. `minoverlap` and `maxoverlap` define the minimum and maximum overlap allowed by the split. 
+
+Output: `{‘output’: dict, ‘step’ : int, ‘step_name’ : str, ‘stats_dict’ : dict }`
 designparser.designparser() returns a dictionary with information about the design. The ‘output’ key stores a dictionary with two dataframes. ‘annotated_complete’ stores your designed oligopool sequences indexed by their sequence ID, where each element type is a column (e.g. ‘Primer1’, ‘Cutsite1’, ‘Barcode’, etc.). ‘presplit_complete’ stores your designed full oligopool sequences under header ‘CompleteOligo’, indexed by their sequence ID. 
-‘step’ stores the last step completed by designparser. 
-‘step_name’ returns a description of the last step completed by designparser.
-‘stats_dict’ stores nested dictionary with information about the design of the oligopool and each element, including ‘status’ and ‘basis’ describing success or failure, ‘step’ and ‘step_name’ store the last step completed and its name.
+`step` stores the last step completed by designparser. 
+`step_name` returns a description of the last step completed by designparser.
+`stats_dict` stores nested dictionary with information about the design of the oligopool and each element, including ‘status’ and ‘basis’ describing success or failure, `step` and `step_name` store the last step completed and its name.
 
 ### function index
-def index.index(barcodedata, barcodecol, barcodeprefix, barcodesuffix, indexfile, barcpde[rega[, barcpdepostgap, associatedata, associatecol, associateprefix, associatesuffix, verbose = True)
+`def index.index(barcodedata, barcodecol, barcodeprefix, barcodesuffix, indexfile, barcpde[rega[, barcpdepostgap, associatedata, associatecol, associateprefix, associatesuffix, verbose = True)`
 
-Parameters
 barcodedata : str
 A path to a .csv file storing barcode information. At minimum, column headers should include ‘ID’ for sequence IDs, and headers for barcodes, and barcode prefixes and/or suffixes. 
 barcodecol : str
@@ -160,16 +169,16 @@ associatesuffix : str / None
 verbose : bool
 	If True, print processing statements. 
 
-Output : dict = {‘output’: dict, ‘step’, ‘step_name’, ‘stats_dict’ }
+Output: `{‘output’: dict, ‘step’ : int, ‘step_name’ : str, ‘stats_dict’ : dict }`
 A dictionary containing information on the indexing solved status. Keys of the dictionary are ‘status’ (True or False, depending on successful completion). A file of .index type is created which stores indexed reads to be used by xcount.xcount() for mapping and counting barcode sequences. 
 
 ### function pack
-def pack.pack(r1file, r1type, packtype, packfile, r1length, r1qual, r2file, r2type, r2length, r2qual, packsize, ncores, memlimit, verbose)
+`def pack.pack(r1file, r1type, packtype, packfile, r1length, r1qual, r2file, r2type, r2length, r2qual, packsize, ncores, memlimit, verbose)`
 
 r1file : str
 	A path to the .fastq file containing R1 reads
 
- r1type : int
+r1type : int
 Defines orientation of reads. 0 specifies forward orientation. 1 specifies reverse orientation
 
 packtype : int
@@ -203,13 +212,13 @@ ncores : int
 	Total number of packers concurrently initiated. 
 
 memlimit : nu.Real
-Total amount of memory allowed per core. 
+	Total amount of memory allowed per core. 
 
 verbose : bool
 	If True, print processing statements. 
 
-xcount
-def xcount.xcount(indexfiles, packfile, countfile, maptype, barcodeerrors, callback, ncores, memlimit, verbose)
+### function xcount
+```def xcount.xcount(indexfiles, packfile, countfile, maptype, barcodeerrors, callback, ncores, memlimit, verbose)```
 
 indexfiles : str
 	Path to .index file containing indexed barcodes generated by index.index().
@@ -218,15 +227,15 @@ packfile : str
 	Path to .pack file containing packed reads generated by pack.pack().
 
 countfile : str
-Path to the filename to save counts found associated with each barcode ID. The suffix ‘oligopool.xcount.csv will be automatically append to the end of the file name.
+	Path to the filename to save counts found associated with each barcode ID. The suffix ‘oligopool.xcount.csv will be automatically append to the end of the file name.
 
 maptype : int
-A value of 0 will perform fast/approximate mapping. A value of 1 will perform slower, exact mapping. 
+	A value of 0 will perform fast/approximate mapping. A value of 1 will perform slower, exact mapping. 
 
 barcodeerrors : int
 	Maximum number of sequencing errors allowed in barcode mapping to tolerate. 
 
-callback : function(read, ID, count, coreid)
+### function callback : function(read, ID, count, coreid)
 A custom callback function that may be passed for additional analysis. All callback functions must contain at least the parameters read, ID, count, and coreid.
 read : str
 	The read being counted/analyzed
@@ -249,92 +258,92 @@ verbose : bool
 For each of the following types, included in the ‘type’ key of each element in the element_spec dictionary, the corresponding keywords must also be included in the dictionary unless specified as None.
 
 ### primer
-‘oligolimit’ : int
+oligolimit : int
 		      Length of designed oligopool sequences. 
 
-‘primerseq’ : str
+primerseq : str
        		An IUAC degenerate nucleotide primer sequence constraint
 
-‘primertype’ : bool
+primertype : bool
           0 = forward primer design
           1 = reverse primer design
 
-‘mintmelt’ : float
+mintmelt : float
           Primer melting temperature lower bound
 
-‘maxtmelt’ : float
+maxtmelt : float
           Primer melting temperature upper bound
 
-‘maxreplen’ : int <= 6
+maxreplen : int <= 6
           Maximum shared repeat length between the primers and flanking regions. 
 
-‘pairedprimer’ : str
+pairedprimer : str
           The paired primer in the primer design. Ensures optimal design, including melting temperature matching and dimer minimization. 
 
-‘leftcontext’ : str / None
+leftcontext : str / None
           Upstream element. Checks design constraints are applied when elements are combined.
 
-‘rightcontext’ : str / None
+rightcontext : str / None
         Downstream element. Checks design constraints are applied when elements are combined.
 
-‘exmotifs’ : list / None
+exmotifs : list / None
 	      Sequences to be excluded from element design. 
 
-### ‘motif’ 
-‘oligolimit’ : int
+### motif 
+oligolimit : int
 		    Length of designed oligopool sequences. 
 
-‘motifseq’ : str
+motifseq : str
 		    An IUAC degenerate nucleotide motif sequence. 
 
-‘leftcontext’ : str / None
+leftcontext : str / None
         Upstream element. Checks design constraints are applied when elements are combined.
 
-‘rightcontext’ : str / None
+rightcontext : str / None
         Downstream element. Checks design constraints are applied when elements are combined.
 
-‘exmotifs’ : list / None
+exmotifs : list / None
 	      Sequences to be excluded from element design. 
 
-### ‘variant’
-	'sequences': list
+### variant
+	sequences: list
         A list of all variants to be designed on your oligopool. The length of this list should inherently be equal to the pool_size parameter in desgingparser()
 
-### ‘barcode’
-‘oligolimit’ : int
+### barcode
+oligolimit : int
 		    Length of designed oligopool sequences
 
-‘barcodelen’ : int
+barcodelen : int
 		    Length of designed barcodes
 
-‘minhdist’ : int
+minhdist : int
 		    Minimum pairwise hamming distance between barcode sequences
-
-‘barcodetype’ : Bool int
+      
+barcodetype : Bool int
         Indicates optimization parameter. ‘0’ for terminus optimized barcode. ‘1’ for spectrum optimized barcode
 
-‘leftcontext’ : str / None
+leftcontext : str / None
         Upstream element. Checks design constraints are applied when elements are combined
 
-‘rightcontext’ : str / None
+rightcontext : str / None
         Downstream element. Checks design constraints are applied when elements are combined
 
-‘exmotifs’ : list / None
+exmotifs : list / None
 	      Sequences to be excluded from element design
 
-### ‘spacer’
-‘oligolimit’ : int
+### spacer
+oligolimit : int
 		    Length of designed oligopool sequences
 
-‘spacerlen’ : int / None
+spacerlen : int / None
         If int, generates a sequence according to design constraints of length int. If None, generates sequence according to design constraints for remaining sequence length up to ‘oligolimit’ considering lengths of all other elements.
  
-‘leftcontext’ : str / None
+leftcontext : str / None
         Upstream element. Checks design constraints are applied when elements are combined
 
-‘rightcontext’ : str / None
+rightcontext : str / None
         Downstream element. Checks design constraints are applied when elements are combined
 
-‘exmotifs’ : list / None
+exmotifs : list / None
 	      Sequences to be excluded from element design
 
