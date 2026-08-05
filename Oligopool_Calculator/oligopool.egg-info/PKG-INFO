@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: oligopool
+Version: 0.0.0
+Summary: Oligopool Calculator - Automated design and analysis of oligopools for massively parallel assays
+Home-page: https://github.com/ayaanhossain/oligopool
+Author: Ayaan Hossain and Howard Salis
+Author-email: auh57@psu.edu, salis@psu.edu
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/ayaanhossain/oligopool/issues
+Project-URL: Source, https://github.com/ayaanhossain/oligopool/tree/master/oligopool
+Keywords: synthetic computational biology genetic parts calculator non-repetitive design discovery algorithm stable systems nrp repeats vertex cover path finding
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: License :: OSI Approved :: GPL Version 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: !=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, >=3.6.*, <4.0.*
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+<h1 align="center">
+    <a href="https://github.com/ayaanhossain/oligopool/">
+        <img src="https://raw.githubusercontent.com/ayaanhossain/repfmt/main/oligopool/img/logo.svg"  alt="Non-Repetitive Parts Calculator" width="460" class="center"/>
+    </a>
+</h1>
+
+<p align="center">
+  <a href="#Overview">Overview</a> •
+  <a href="#Installation">Installation</a> •
+  <a href="#License">License</a> •
+  <a href="#Citation">Citation</a> •
+  <a href="https://github.com/ayaanhossain/oligopool/blob/master/docs/DOCS.md">DOCS</a> •
+  <a href="#Oligopool-Calculator-in-Action">Oligopool Calculator in Action!</a>
+</p>
+
+A suite of tools to design and analyze oligopool libraries for massively parallel assays.
+
